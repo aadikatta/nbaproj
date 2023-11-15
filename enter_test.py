@@ -12,13 +12,13 @@ teams_dict = teams.get_teams()
 # Names are case sensitive
 #list comprehension: Useful for sorting through a dictionary
 
-player1_name = input('What is the name of the first player?\n')
-player2_name = input('What is the name of the second player?\n')
+#player1_name = input('What is the name of the first player?\n')
+#player2_name = input('What is the name of the second player?\n')
 
 
 #testing purposes
-"""player1_name = 'Austin Reaves'
-player2_name = 'Anthony Edwards'"""
+player1_name = 'Austin Reaves'
+player2_name = 'Anthony Edwards'
 
 
 
@@ -38,9 +38,20 @@ player2_full = [game for game in player2_games_dict]
 
 player2vsplayer1_dict = [game_id for game_id in player1_print if game_id in player2_print]
 
+player1vs_dict = [game for game in player1_games_dict if game['Game_ID'] in player2vsplayer1_dict]
+player2vs_dict = [game for game in player2_games_dict if game['Game_ID'] in player2vsplayer1_dict]
+
 '''print(player1_print)
 print('\n\n\n')'''
 
-#print(player2_print)
-
 print(player2vsplayer1_dict)
+
+print('\n\n\n')
+
+print('----------------' + player1_name + '----------------')
+print([(game['PTS'], game['FG_PCT']) for game in player1vs_dict])
+
+print('\n\n')
+
+print('----------------' + player2_name + '----------------')
+print([(game['PTS'], game['FG_PCT']) for game in player2vs_dict])
