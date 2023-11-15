@@ -18,8 +18,8 @@ teams_dict = teams.get_teams()
 
 #testing purposes
 #Spelling must be correct
-player1_name = 'LeBron James'
-player2_name = 'Stephen Curry'
+player1_name = 'Stephen Curry'
+player2_name = "De'Aaron Fox"
 
 #Will return the stats of two players that played in games where the other player played in both of their careers
 #Works for players that played on the same team or against each other
@@ -62,7 +62,7 @@ for i in [(game['PTS']) for game in player1vs_dict]:
     count+=1
     points+=i
 
-print(player1_name + ' Points Average: ' + str(points/count))
+print(player1_name + ' Points Average: ' + str(round(points/count, 2)))
 
 print('\n\n')
 
@@ -76,4 +76,4 @@ for i in [(game['PTS']) for game in player2vs_dict]:
     count+=1
     points+=i
 
-print(player2_name + ' Points Average: ' + str(points/count))
+print(player2_name + ' Points Average: ' + str(round(points/count, 2)))
