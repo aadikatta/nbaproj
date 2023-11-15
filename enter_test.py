@@ -55,7 +55,25 @@ print('\n\n\n')
 print('----------------' + player1_name + '----------------')
 print([(game['PTS'], game['FG_PCT']) for game in player1vs_dict])
 
+#average calculations can be done here once data is retrieved at the top
+count = 0
+points = 0
+for i in [(game['PTS']) for game in player1vs_dict]:
+    count+=1
+    points+=i
+
+print(player1_name + ' Points Average: ' + str(points/count))
+
 print('\n\n')
 
 print('----------------' + player2_name + '----------------')
 print([(game['PTS'], game['FG_PCT']) for game in player2vs_dict])
+
+#average calculations can be done here once data is retrieved at the top
+count = 0
+points = 0
+for i in [(game['PTS']) for game in player2vs_dict]:
+    count+=1
+    points+=i
+
+print(player2_name + ' Points Average: ' + str(points/count))
