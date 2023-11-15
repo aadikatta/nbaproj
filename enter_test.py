@@ -3,6 +3,7 @@ from nba_api.stats.static import teams
 from nba_api.stats.endpoints import playergamelog
 from nba_api.stats.library.parameters import SeasonAll
 import pandas as pd
+import numpy as np
 
 player_dict = players.get_players()
 teams_dict = teams.get_teams()
@@ -45,29 +46,30 @@ player2vsplayer1_dict = [game_id for game_id in player1_print if game_id in play
 player1vs_dict = [game for game in player1_games_dict if game['Game_ID'] in player2vsplayer1_dict]
 player2vs_dict = [game for game in player2_games_dict if game['Game_ID'] in player2vsplayer1_dict]
 
-'''print(player1_print)
+'''print(player1_games_dict)
 print('\n\n\n')'''
 
-print(player2vsplayer1_dict)
+#print(player2vsplayer1_dict)
 
 print('\n\n\n')
 
 print('----------------' + player1_name + '----------------')
-print([(game['PTS'], game['FG_PCT']) for game in player1vs_dict])
+print([(game['PTS'], game['FG_PCT'], game['PLUS_MINUS']) for game in player1vs_dict])
 
 #average calculations can be done here once data is retrieved at the top
-count = 0
+count = 0                                                                                       #avg points calculation
 points = 0
 for i in [(game['PTS']) for game in player1vs_dict]:
     count+=1
     points+=i
-
 print(player1_name + ' Points Average: ' + str(round(points/count, 2)))
+avg_pm_arr = np.mean([(game['PLUS_MINUS']) for game in player1vs_dict])                         #avg plus minus calculation
+print(player1_name + 'Average Plus/Minus: ' + str(avg_pm_arr))
 
 print('\n\n')
 
 print('----------------' + player2_name + '----------------')
-print([(game['PTS'], game['FG_PCT']) for game in player2vs_dict])
+print([(game['PTS'], game['FG_PCT'], game['PLUS_MINUS']) for game in player2vs_dict])
 
 #average calculations can be done here once data is retrieved at the top
 count = 0
@@ -75,5 +77,6 @@ points = 0
 for i in [(game['PTS']) for game in player2vs_dict]:
     count+=1
     points+=i
-
 print(player2_name + ' Points Average: ' + str(round(points/count, 2)))
+avg_pm_arr = np.mean([(game['PLUS_MINUS']) for game in player2vs_dict])
+print(player2_name + 'Average Plus/Minus: ' + str(avg_pm_arr))
