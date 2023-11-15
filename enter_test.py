@@ -19,8 +19,8 @@ teams_dict = teams.get_teams()
 
 #testing purposes
 #Spelling must be correct
-player1_name = 'Stephen Curry'
-player2_name = "De'Aaron Fox"
+player1_name = 'Russell Westbrook'
+player2_name = "Kevin Durant"
 
 #Will return the stats of two players that played in games where the other player played in both of their careers
 #Works for players that played on the same team or against each other
@@ -62,9 +62,8 @@ points = 0
 for i in [(game['PTS']) for game in player1vs_dict]:
     count+=1
     points+=i
-print(player1_name + ' Points Average: ' + str(round(points/count, 2)))
-avg_pm_arr = np.mean([(game['PLUS_MINUS']) for game in player1vs_dict])                         #avg plus minus calculation
-print(player1_name + 'Average Plus/Minus: ' + str(avg_pm_arr))
+
+player1_points_avg = round(points/count, 2)
 
 print('\n\n')
 
@@ -77,6 +76,15 @@ points = 0
 for i in [(game['PTS']) for game in player2vs_dict]:
     count+=1
     points+=i
-print(player2_name + ' Points Average: ' + str(round(points/count, 2)))
+
+player2_points_avg = round(points/count, 2)
+
+
+print('\n\n\n')
+print(player1_name + ' Points Average: ' + str(player1_points_avg))
+avg_pm_arr = np.mean([(game['PLUS_MINUS']) for game in player1vs_dict])                         #avg plus minus calculation
+print(player1_name + ' Average Plus/Minus: ' + str(round(avg_pm_arr, 2)))
+print('\n\n\n')
+print(player2_name + ' Points Average: ' + str(player2_points_avg))
 avg_pm_arr = np.mean([(game['PLUS_MINUS']) for game in player2vs_dict])
-print(player2_name + 'Average Plus/Minus: ' + str(avg_pm_arr))
+print(player2_name + ' Average Plus/Minus: ' + str(round(avg_pm_arr, 2)))
