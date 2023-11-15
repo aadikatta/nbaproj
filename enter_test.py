@@ -57,7 +57,7 @@ print('----------------' + player1_name + '----------------')
 print([(game['PTS'], game['FG_PCT'], game['PLUS_MINUS']) for game in player1vs_dict])
 
 #average calculations can be done here once data is retrieved at the top
-count = 0                                                                                       #avg points calculation
+count = 0                                                                                       
 points = 0
 for i in [(game['PTS']) for game in player1vs_dict]:
     count+=1
@@ -81,8 +81,8 @@ player2_points_avg = round(points/count, 2)
 
 
 print('\n\n\n')
-print(player1_name + ' Points Average: ' + str(player1_points_avg))
-avg_pm_arr = np.mean([(game['PLUS_MINUS']) for game in player1vs_dict])                         #avg plus minus calculation
+print(player1_name + ' Points Average: ' + str(player1_points_avg))                         #outputs statements + average calculation for plus/minus
+avg_pm_arr = np.mean([(game['PLUS_MINUS']) for game in player1vs_dict])                         
 print(player1_name + ' Average Plus/Minus: ' + str(round(avg_pm_arr, 2)))
 print('\n\n\n')
 print(player2_name + ' Points Average: ' + str(player2_points_avg))
