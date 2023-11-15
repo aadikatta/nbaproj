@@ -17,10 +17,11 @@ teams_dict = teams.get_teams()
 
 
 #testing purposes
-player1_name = 'Austin Reaves'
-player2_name = 'Anthony Edwards'
+#Spelling must be correct
+player1_name = 'LeBron James'
+player2_name = 'Stephen Curry'
 
-#Will return the stats of two players that played in games where the other player played
+#Will return the stats of two players that played in games where the other player played in both of their careers
 #Works for players that played on the same team or against each other
 
 player1 = [player for player in player_dict if player['full_name'] == player1_name][0]
@@ -30,11 +31,11 @@ player2_id = player2['id']
 
 #change SeasonAll."previous_season" to retrieve seasons other than that one
 #eventually should be able to take from all past and current seasons (with the ability to be changed upon input?)
-player1_games = playergamelog.PlayerGameLog(player_id=player1_id, season=SeasonAll.previous_season).get_normalized_dict()
+player1_games = playergamelog.PlayerGameLog(player_id=player1_id, season=SeasonAll.all).get_normalized_dict()
 player1_games_dict = player1_games['PlayerGameLog']
 player1_print = [game["Game_ID"] for game in player1_games_dict]
 
-player2_games = playergamelog.PlayerGameLog(player_id=player2_id, season=SeasonAll.previous_season).get_normalized_dict()
+player2_games = playergamelog.PlayerGameLog(player_id=player2_id, season=SeasonAll.all).get_normalized_dict()
 player2_games_dict = player2_games['PlayerGameLog']
 player2_print = [game["Game_ID"] for game in player2_games_dict]
 player2_full = [game for game in player2_games_dict]
