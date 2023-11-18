@@ -19,8 +19,8 @@ teams_dict = teams.get_teams()
 
 #testing purposes
 #Spelling must be correct
-player1_name = 'Russell Westbrook'
-player2_name = "Kevin Durant"
+player1_name = 'Nikola Jokic'
+player2_name = 'LeBron James'
 
 #Will return the stats of two players that played in games where the other player played in both of their careers
 #Works for players that played on the same team or against each other
@@ -31,7 +31,7 @@ player2 = [player for player in player_dict if player['full_name'] == player2_na
 player2_id = player2['id']
 
 #change SeasonAll."previous_season" to retrieve seasons other than that one
-#eventually should be able to take from all past and current seasons (with the ability to be changed upon input?)
+#eventually should be able to be changed upon input?
 player1_games = playergamelog.PlayerGameLog(player_id=player1_id, season=SeasonAll.all).get_normalized_dict()
 player1_games_dict = player1_games['PlayerGameLog']
 player1_print = [game["Game_ID"] for game in player1_games_dict]
@@ -53,38 +53,27 @@ print('\n\n\n')'''
 
 print('\n\n\n')
 
+
+#calculations + data retrieval
 print('----------------' + player1_name + '----------------')
 print([(game['PTS'], game['FG_PCT'], game['PLUS_MINUS']) for game in player1vs_dict])
-
-#average calculations can be done here once data is retrieved at the top
-count = 0                                                                                       
-points = 0
-for i in [(game['PTS']) for game in player1vs_dict]:
-    count+=1
-    points+=i
-
-player1_points_avg = round(points/count, 2)
 
 print('\n\n')
 
 print('----------------' + player2_name + '----------------')
 print([(game['PTS'], game['FG_PCT'], game['PLUS_MINUS']) for game in player2vs_dict])
 
-#average calculations can be done here once data is retrieved at the top
-count = 0
-points = 0
-for i in [(game['PTS']) for game in player2vs_dict]:
-    count+=1
-    points+=i
-
-player2_points_avg = round(points/count, 2)
-
+#print statements
 
 print('\n\n\n')
+player1_points_avg = round(np.mean([(game['PTS']) for game in player1vs_dict]), 2)
 print(player1_name + ' Points Average: ' + str(player1_points_avg))                         #outputs statements + average calculation for plus/minus
 avg_pm_arr = np.mean([(game['PLUS_MINUS']) for game in player1vs_dict])                         
 print(player1_name + ' Average Plus/Minus: ' + str(round(avg_pm_arr, 2)))
+
+
 print('\n\n\n')
+player2_points_avg = round(np.mean([(game['PTS']) for game in player2vs_dict]), 2)
 print(player2_name + ' Points Average: ' + str(player2_points_avg))
 avg_pm_arr = np.mean([(game['PLUS_MINUS']) for game in player2vs_dict])
 print(player2_name + ' Average Plus/Minus: ' + str(round(avg_pm_arr, 2)))
