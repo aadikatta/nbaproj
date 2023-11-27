@@ -19,8 +19,8 @@ teams_dict = teams.get_teams()
 
 #testing purposes
 #Spelling must be correct
-player1_name = 'Nikola Jokic'
-player2_name = 'LeBron James'
+player1_name = 'Dwight Howard'
+player2_name = 'Stephen Curry'
 
 #Will return the stats of two players that played in games where the other player played in both of their careers
 #Works for players that played on the same team or against each other
@@ -41,7 +41,7 @@ player2_games_dict = player2_games['PlayerGameLog']
 player2_print = [game["Game_ID"] for game in player2_games_dict]
 player2_full = [game for game in player2_games_dict]
 
-player2vsplayer1_dict = [game_id for game_id in player1_print if game_id in player2_print]
+player2vsplayer1_dict = [game_id for game_id in player2_print if game_id in player1_print]
 
 player1vs_dict = [game for game in player1_games_dict if game['Game_ID'] in player2vsplayer1_dict]
 player2vs_dict = [game for game in player2_games_dict if game['Game_ID'] in player2vsplayer1_dict]
