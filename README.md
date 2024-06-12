@@ -3,8 +3,16 @@ We do not condone or take part in gambling.
 
 Uses player matchups and previous performance to predict a player's points in a coming game against a specified opposing team. 
 
-**Main functionality will be found in matchup_prime.py.
+#############################################
 
+**Main functionality will be found in matchup_prime.py. 
+
+***Before use, make sure all relevant APIs are installed:
+NBA_API
+Pandas
+Scikit-learn
+
+#############################################
 
 Isolate player performance for each possible matchup on the other team by position, and average our player's performance for all matchups.
 
@@ -12,7 +20,7 @@ Create lagged features to understand how all other factors in player log can aff
 
 Game ID, Game Date, Points, and Matchup dropped from the learning set. Then, we split into train and test, and fit our model. MSE is calculated for points prediction based on the test set.
 
-
+#############################################
 
 In the coming weeks we want to:
 - Add functionality for assists, rebounds, and first-half points
