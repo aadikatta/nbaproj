@@ -137,7 +137,7 @@ def preprocess_data(player_logs):
     return player_logs
 
 
-#creates pipeline to preprocess data and 
+#creates pipeline to preprocess data and train model
 def create_pipeline():
 
     numerical_features = [f'PTS_lag_{i}' for i in range(1, 8)] + [f'REB_lag_{i}' for i in range(1, 8)] + [f'AST_lag_{i}' for i in range(1, 8)]
