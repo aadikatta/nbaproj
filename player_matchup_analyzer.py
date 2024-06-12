@@ -4,6 +4,7 @@ from nba_api.stats.endpoints import playergamelog
 from nba_api.stats.library.parameters import SeasonAll
 import pandas as pd
 import numpy as np
+from sklearn.neural_network import MLPRegressor
 
 player_dict = players.get_players()
 teams_dict = teams.get_teams()
@@ -80,9 +81,15 @@ def player_vs_player(player1, player2):
     avg_pm_arr = np.mean([(game['PLUS_MINUS']) for game in player2vs_dict])
     print(player2_name + ' Average Plus/Minus: ' + str(round(avg_pm_arr, 2)))
 
+    print('\n\n\n')
+    print(player1_id)
 
 
 
+player1 = [player for player in player_dict if player['full_name'] == 'Stephen Curry'][0]
 
 #MAIN
-player_vs_player('Stephen Curry', 'LeBron James')
+print('\n\n\n')
+player_vs_player('Luka Doncic', 'Kyrie Irving')
+
+
