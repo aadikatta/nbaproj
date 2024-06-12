@@ -3,6 +3,7 @@ We do not condone or take part in gambling.
 
 Uses player matchups and previous performance to predict a player's points in a coming game against a specified opposing team. 
 
+**Main functionality will be found in matchup_prime.py.
 
 
 Isolate player performance for each possible matchup on the other team by position, and average our player's performance for all matchups.
